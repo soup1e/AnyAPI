@@ -18,6 +18,19 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('/blocks/:id should return the block detail', async () => {
+    const res = await request(app).get('/blocks/1');
+    const stone = {
+      id: '1',
+      itemId: 'minecraft:stone',
+      name: 'Stone',
+      stackable: true,
+      size: 64,
+      url: 'https://minecraftitemids.com/item/128/stone.png',
+    };
+    expect(res.body).toEqual(stone);
+  });
+
   afterAll(() => {
     pool.end();
   });
