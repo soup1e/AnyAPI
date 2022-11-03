@@ -22,7 +22,7 @@ describe('backend-express-template routes', () => {
     const res = await request(app).get('/blocks/1');
     const stone = {
       id: '1',
-      itemId: 'minecraft:stone',
+      itemid: 'minecraft:stone',
       name: 'Stone',
       stackable: true,
       size: 64,

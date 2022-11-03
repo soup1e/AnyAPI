@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS minecraft_blocks;
 
 CREATE TABLE minecraft_blocks (
     id BIGINT GENERATED ALWAYS AS IDENTITY,
-    itemId VARCHAR NOT NULL,
+    itemid VARCHAR NOT NULL,
     name VARCHAR NOT NULL,
     stackable BOOLEAN NOT NULL,
     size INT NOT NULL,
