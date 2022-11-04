@@ -4,6 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 
 const { blocks } = require('../lib/blocks-data');
+const { potions } = require('../lib/potions-data');
 
 describe('backend-express-template routes', () => {
   beforeEach(() => {
@@ -29,6 +30,14 @@ describe('backend-express-template routes', () => {
       url: 'https://minecraftitemids.com/item/128/stone.png',
     };
     expect(res.body).toEqual(stone);
+  });
+
+  it('/potions should return a list of potions', async () => {
+    const res = await request(app).get('/potions');
+    const expected = potions.map((potions) => {
+      return { id: potions.id, name: potions.name };
+    });
+    expect(res.body).toEqual(expected);
   });
 
   afterAll(() => {
