@@ -34,8 +34,8 @@ describe('backend-express-template routes', () => {
 
   it('/potions should return a list of potions', async () => {
     const res = await request(app).get('/potions');
-    const expected = potions.map((potions) => {
-      return { id: potions.id, name: potions.name };
+    const expected = potions.map((potion) => {
+      return { id: potion.id, name: potion.name };
     });
     expect(res.body).toEqual(expected);
   });
