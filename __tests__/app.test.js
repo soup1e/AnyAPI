@@ -40,6 +40,17 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('/potions/:id should return the potions detail', async () => {
+    const res = await request(app).get('/potions/1');
+    const healing = {
+      id: '1',
+      name: 'Potion of Healing',
+      effect: 'Instant Health: Restores health by 4',
+      enhanced: 'Instant Health II: Restores health by 8',
+      url: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5b/Invicon_Potion_of_Healing.gif/revision/latest?cb=20200517214841',
+    };
+    expect(res.body).toEqual(healing);
+  });
   afterAll(() => {
     pool.end();
   });
